@@ -1,0 +1,25 @@
+* {
+	margin: 0;
+	border: 0;
+}
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: stretch;
+}
+
+.gridRow {
+	display: flex;
+
+	flex: auto;
+}
+
+.gridItem {
+	margin: 0;
+	border: 0;
+
+	height: 32px;
+	width: 32px;
+	background-color: red;
+}
