@@ -5,7 +5,11 @@ for (let i = 0; i < 16; i++) {
 	gridRow.className = "gridRow";
 	for (let j = 0; j < 16; j++) {
 		let div = document.createElement("div");
-		div.className = "gridItem";
+		div.classList.add("gridItem");
+
+		div.addEventListener("mouseenter", (e) => {
+			e.target.classList.add("gridItemActivated");
+		});
 
 		gridRow.appendChild(div);
 	}
