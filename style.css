@@ -11,14 +11,10 @@
 
 .gridRow {
 	display: flex;
-
 	flex: auto;
 }
 
 .gridItem {
-	margin: 0;
-	border: 0;
-
 	height: 32px;
 	width: 32px;
 	background-color: red;
