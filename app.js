@@ -52,9 +52,7 @@ function createGrid(size) {
 			div.classList.add("gridItem");
 
 			// * hover effect
-			div.addEventListener("mouseenter", (e) => {
-				e.target.classList.add("gridItemActivated");
-			});
+			div.addEventListener("mouseenter", hoverEffect);
 
 			// * add grid item to it's row
 			gridRow.appendChild(div);
@@ -63,6 +61,19 @@ function createGrid(size) {
 		// * add grid row to grid container
 		container.appendChild(gridRow);
 	}
+}
+
+function hoverEffect(event) {
+	let element = event.target;
+
+	element.classList.add("gridItemActivated");
+
+	const randomRed = Math.random() * 255;
+	const randomGreen = Math.random() * 255;
+	const randomBlue = Math.random() * 255;
+
+	element.style.backgroundColor =
+		"rgb(" + randomRed + "," + randomGreen + "," + randomBlue + ")";
 }
 
 // * start app with 16x16 grid
