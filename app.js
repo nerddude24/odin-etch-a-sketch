@@ -1,4 +1,20 @@
 const container = document.querySelector(".container");
+const newGridBtn = document.querySelector("#new-grid-btn");
+
+newGridBtn.addEventListener("click", (e) => {
+	const gridSize = parseInt(prompt("Enter new grid size: (4 - 100)"));
+
+	if (isNaN(gridSize)) {
+		alert("That's not a number!");
+		return;
+	} else if (gridSize < 4 || gridSize > 100) {
+		alert("Please enter a correct number! (between 4 and 100)");
+		return;
+	}
+
+	// * all checks passed and we create new grid
+	createGrid(gridSize);
+});
 
 function clearGrid() {
 	container.innerHTML = "";
@@ -25,4 +41,4 @@ function createGrid(size) {
 	}
 }
 
-createGrid(32);
+createGrid(16);
