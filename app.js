@@ -1,8 +1,8 @@
 const MIN_GRID_SIZE = 4;
 const MAX_GRID_SIZE = 100;
-const START_GRID_SIZE = 16;
+const START_GRID_SIZE = 8;
 
-const container = document.querySelector(".container");
+const container = document.querySelector("#container");
 const newGridBtn = document.querySelector("#new-grid-btn");
 
 newGridBtn.addEventListener("click", (e) => {
@@ -39,7 +39,8 @@ function clearGrid() {
 	container.innerHTML = "";
 }
 
-// * creates a grid that is always 750x750px big
+// * creates a grid that is a fixed size (size declared in container's css)
+// * only the number of tiles changes.
 function createGrid(size) {
 	clearGrid();
 
@@ -86,5 +87,5 @@ function hoverEffect(event) {
 		element.style.opacity = (currentOpacity + 0.1).toString();
 }
 
-// * start app with 16x16 grid
+// * start app with START_GRID_SIZE constant
 createGrid(START_GRID_SIZE);
