@@ -8,6 +8,9 @@
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: stretch;
+
+	height: 750px;
+	width: 750px;
 }
 
 .gridRow {
@@ -16,12 +19,11 @@
 }
 
 .gridItem {
-	height: 40px;
-	width: 40px;
 	border: 1px solid black;
+	flex: auto;
 }
 
 .gridItemActivated {
-	border: 0;
+	border: 1px solid red;
 	background-color: red;
 }
