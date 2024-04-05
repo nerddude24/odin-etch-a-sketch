@@ -1,14 +1,33 @@
+const MIN_GRID_SIZE = 4;
+const MAX_GRID_SIZE = 100;
+const START_GRID_SIZE = 16;
+
 const container = document.querySelector(".container");
 const newGridBtn = document.querySelector("#new-grid-btn");
 
 newGridBtn.addEventListener("click", (e) => {
-	const gridSize = parseInt(prompt("Enter new grid size: (4 - 100)"));
+	// * parseInt returns NaN if prompt is not a number
+	const gridSize = parseInt(
+		prompt(
+			"Enter new grid size: (" +
+				MIN_GRID_SIZE +
+				" - " +
+				MAX_GRID_SIZE +
+				" )"
+		)
+	);
 
 	if (isNaN(gridSize)) {
 		alert("That's not a number!");
 		return;
-	} else if (gridSize < 4 || gridSize > 100) {
-		alert("Please enter a correct number! (between 4 and 100)");
+	} else if (gridSize < MIN_GRID_SIZE || gridSize > MAX_GRID_SIZE) {
+		alert(
+			"Please enter a correct number! (between " +
+				MIN_GRID_SIZE +
+				" - " +
+				MAX_GRID_SIZE +
+				" )"
+		);
 		return;
 	}
 
@@ -20,25 +39,31 @@ function clearGrid() {
 	container.innerHTML = "";
 }
 
+// * creates a grid that is always 750x750px big
 function createGrid(size) {
 	clearGrid();
 
 	for (let i = 0; i < size; i++) {
 		let gridRow = document.createElement("div");
 		gridRow.className = "gridRow";
+
 		for (let j = 0; j < size; j++) {
 			let div = document.createElement("div");
 			div.classList.add("gridItem");
 
+			// * hover effect
 			div.addEventListener("mouseenter", (e) => {
 				e.target.classList.add("gridItemActivated");
 			});
 
+			// * add grid item to it's row
 			gridRow.appendChild(div);
 		}
 
+		// * add grid row to grid container
 		container.appendChild(gridRow);
 	}
 }
 
-createGrid(16);
+// * start app with 16x16 grid
+createGrid(START_GRID_SIZE);
