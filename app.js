@@ -68,12 +68,22 @@ function hoverEffect(event) {
 
 	element.classList.add("gridItemActivated");
 
+	// random rgb colors
 	const randomRed = Math.random() * 255;
 	const randomGreen = Math.random() * 255;
 	const randomBlue = Math.random() * 255;
 
 	element.style.backgroundColor =
 		"rgb(" + randomRed + "," + randomGreen + "," + randomBlue + ")";
+
+	// opacity variable is string, so we must convert to float to increment it.
+	let currentOpacity = parseFloat(element.style.opacity);
+
+	// if opacity doesn't exist or isn't a valid number, set it to "0.1"
+	if (isNaN(currentOpacity)) element.style.opacity = "0.1";
+	// if it is a number, increase by 0.1 and convert back to string
+	else if (currentOpacity < 1)
+		element.style.opacity = (currentOpacity + 0.1).toString();
 }
 
 // * start app with 16x16 grid
